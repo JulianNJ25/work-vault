@@ -1,4 +1,4 @@
-This is the process for configuring, accessing, and reading from a database using [[Openbao]].
+1This is the process for configuring, accessing, and reading from a database using [[Openbao]].
 
 Before touching anythin in openbao, a user in the database must be created, this will be the entry point of openbao for accessing the database.
 # 1. Enable Database Secret Engine

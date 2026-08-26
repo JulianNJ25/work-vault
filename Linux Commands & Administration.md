@@ -5,6 +5,7 @@
 |           |                                             |
 | --------- | ------------------------------------------- |
 | `sudo -i` | log in as sudo and get an interactive shell |
+|           |                                             |
 
 ## File administration
 
@@ -74,3 +75,22 @@
 | `/etc/login.def` | configurations parameters for the shadow password suite - controls user account defaults for new users |
 |                  |                                                                                                        |
 
+# Docker
+
+| docker [command] --help                                                                                                                                  | get help on a command                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| `docker compose up -d`                                                                                                                                   | create and start a container from a compose file           |
+| `docker compose down`                                                                                                                                    | removes all running containers                             |
+| `docker system prune -a`                                                                                                                                 | removes all container and images that are no longer in use |
+| `docker network inspect $(docker network ls -q) --format 'Network: {{.Name}} -> Containers: {{range .Containers}}{{.Name}} ({{.IPv4Address}}), {{end}}'` | find all the networks and their related containers         |
+| docker run [container] [command]                                                                                                                         | run a command inside the container                         |
+| docker run -it [container]                                                                                                                               | start an interactive shell to interact with the container  |
+| docker ps                                                                                                                                                | currently running containers                               |
+| docker ps -a                                                                                                                                             | look at current and previosly run containers               |
+| docker rm [container]                                                                                                                                    | remove containers                                          |
+| docker rmi [image-id]                                                                                                                                    | remove images                                              |
+| docker system prune                                                                                                                                      | remove all stopped containers                              |
+| docker port [container]                                                                                                                                  | check the open ports in a container                        |
+| docker stop [container]                                                                                                                                  | stop a container                                           |
+| docker images                                                                                                                                            | list all current images in the docker cache                |
+prlimit --as=1000 --pid2
