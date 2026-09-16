@@ -415,8 +415,6 @@ You want reproducible, reviewable migrations.
 
 # 10. Validation
 
-Another major missing category.
-
 Define **where validation occurs**.
 
 For example:
@@ -434,21 +432,13 @@ Repository
 ```
 
 Define:
-
 - `@NotNull`
-    
 - `@NotBlank`
-    
 - `@Size`
-    
 - `@Pattern`
-    
 - `@Valid`
-    
 - custom validators
-    
 - business validation
-    
 
 And distinguish:
 
@@ -481,27 +471,16 @@ You already have this, and I'd keep it as its own standard.
 Include:
 
 - custom exception naming
-    
 - exception hierarchy
-    
 - when to create custom exceptions
-    
 - HTTP mapping
-    
 - error response structure
-    
 - validation errors
-    
 - unexpected errors
-    
 - logging of exceptions
-    
 - sensitive information
-    
 - stack traces
-    
 - correlation IDs
-    
 
 You have already been working on the `ErrorResponseDto` / `@RestControllerAdvice` approach, so this can become one of your first concrete standards.
 
@@ -521,16 +500,11 @@ Define:
 
 When to use:
 
-- `TRACE`
-    
+- `TRACE`    
 - `DEBUG`
-    
 - `INFO`
-    
 - `WARN`
-    
 - `ERROR`
-    
 
 ### Log structure
 
@@ -551,17 +525,11 @@ message
 This is particularly relevant to ISO 27001:
 
 - passwords
-    
 - authentication tokens
-    
 - API keys
-    
 - sensitive personal information
-    
 - sensitive medical information
-    
 - database credentials
-    
 
 ### Logging responsibility
 
@@ -578,23 +546,14 @@ For example:
 Define:
 
 - `application.yml`
-    
 - profiles
-    
 - environment variables
-    
 - secrets
-    
 - configuration properties
-    
 - default values
-    
 - configuration validation
-    
 - external configuration
-    
 - production configuration
-    
 
 Especially:
 

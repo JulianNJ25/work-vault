@@ -9,11 +9,13 @@
 
 ## File administration
 
-|                                         |                                      |
-| --------------------------------------- | ------------------------------------ |
-| `chmod 4xxx [file]`                     | set the setuid bit to a file         |
-| `find [path] -name [file_name]`         | search for a file name in a location |
-| `find [path] -name [file_name] -type d` | search for a directory in a location |
+|                                                                |                                      |
+| -------------------------------------------------------------- | ------------------------------------ |
+| `chmod 4xxx [file]`                                            | set the setuid bit to a file         |
+| `find [path] -name [file_name]`                                | search for a file name in a location |
+| `find [path] -name [file_name] -type d`                        | search for a directory in a location |
+| tar -I pigz -cf archive_name.tar.gz directory_to_compress/<br> | compress a file                      |
+| tar -I pigz -xf archive_name.tar.gz<br>                        | decompress a file                    |
 
 ## USER AND GROUP ADMINISTRATION
 
@@ -53,9 +55,9 @@
 
 ### SSH
 
-| ssh user@ip                           | connect to another machine |
-| ------------------------------------- | -------------------------- |
-| `ssh-keygen -t ed25519 -C "username"` | generate an ssh key-pair   |
+| ssh user@ip                         | connect to another machine |
+| ----------------------------------- | -------------------------- |
+| ssh-keygen -t ed25519 -C "username" | generate an ssh key-pair   |
 ### SFTP
 
 | `help`                    | get help on all available commands      |
@@ -93,4 +95,16 @@
 | docker port [container]                                                                                                                                  | check the open ports in a container                        |
 | docker stop [container]                                                                                                                                  | stop a container                                           |
 | docker images                                                                                                                                            | list all current images in the docker cache                |
-prlimit --as=1000 --pid2
+| docker **volume** ls                                                                                                                                     | list created volumes                                       |
+| docker volume create --name [volume name]<br>                                                                                                            | create a new volume                                        |
+| docker compose -f production-stack.yaml up -d<br>                                                                                                        | run a compose file with a non-standard name                |
+
+# Git
+
+
+|                                                                          |                          |
+| ------------------------------------------------------------------------ | ------------------------ |
+| git remote set-url origin https://github.com/USERNAME/REPOSITORY.git<br> | set a new origin to push |
+|                                                                          |                          |
+
+

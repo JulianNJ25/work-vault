@@ -15,3 +15,6 @@ Aprender sobre los elementos basicos de la concurrencia y avanzar desde ahi
 
 Current problems:
 - ci-java-maven container occupies to much storage is it needed to use a whole ubuntu container for this?
+
+mkdocs:
+- hacer guia de añadir/pushear/registrar containers a forgejo para usar dentro de los actions
