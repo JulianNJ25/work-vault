@@ -107,4 +107,9 @@
 | git remote set-url origin https://github.com/USERNAME/REPOSITORY.git<br> | set a new origin to push |
 |                                                                          |                          |
 
+# GITHUB
 
+```bash
+# CHANGE REMOTE ORIGIN TO SSH
+git remote set-url origin git@github.com:JulianNJ25/work-vault.git
+```
