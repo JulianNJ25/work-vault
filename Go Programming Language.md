@@ -1,3 +1,62 @@
+# Set up Go Development Environment
+
+> Complete guide here https://medium.com/codex/how-to-set-up-a-go-development-environment-67b4b002182e
+
+**Dir structure**
+```
+src/   Source code files
+pkg/   Compiles package objects
+bin/   Compiled executables
+```
+
+**Env variables**
+```bash
+export GOROOT=/usr/local/go  
+export GOPATH=$HOME/go  
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+```
+
+**Check workspace setup**
+```bash
+#display of all of go's env varibles
+go env
+```
+
+**Dependency management and modules **
+```go
+//Initialize a module in the proyect
+go mod init example.com/helloworld
+
+//Add a depenency
+go get github.com/sirupsen/logrus
+
+//the updated information will be in
+go.mod
+```
+
+**Format code**
+```go
+gofmt -w main.go
+```
+
+**Run tests**
+```go
+package main
+
+import "testing"
+func TestHelloWorld(t *testing.T) {
+	result := "Hello, World!"
+	expected := "Hello, World!"
+	if result != expected {
+		t.Errorf("got %q, want %q", result, expected)
+	}
+}
+```
+
+```go
+//run tests
+go test
+```
 # Variables and Constants
 
 **Declare variables**
@@ -117,3 +176,41 @@ float32 float64
 complex64 complex128
 ```
 
+# Go routines - concurrency
+**Goroutines** are lightweight threads
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func sayHelo() {
+	fmt.Println("Hello World")
+}
+
+func main() {
+	go sayHello()
+	time.Sleep(time.Second)
+}
+```
+
+**Channels** syncronize goroutines
+
+``` go
+package main
+
+import "fmt"
+
+func main() {
+	ch := make(chan string)
+	
+	go func() {
+		ch <- "Hello, Channel!"
+	}()
+	
+	fmt.Println(<-ch)
+}
+```
