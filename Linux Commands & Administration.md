@@ -130,7 +130,9 @@
 | ---------------------------------------------------------------------------------------- | -------------------------------- |
 | CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o [binary-name] main.go | **Compile statically for Linux** |
 
+# GITHUB
 
+<<<<<<< HEAD
 # OPENBAO
 
 
@@ -139,3 +141,9 @@
 | bao list auth/approle/role             | check roles |
 | bao read auth/approle/role/{role-name} | read        |
 
+=======
+```bash
+# CHANGE REMOTE ORIGIN TO SSH
+git remote set-url origin git@github.com:JulianNJ25/work-vault.git
+```
+>>>>>>> 8277d739dbdb0155ba40ce587f8eead454cdf438
