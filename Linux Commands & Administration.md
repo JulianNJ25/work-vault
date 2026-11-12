@@ -32,15 +32,16 @@
 | `su -`                              | log in as root                   |
 ## PROCESS ADMINISTRATION
 
-|                  |                                                                  |
-| ---------------- | ---------------------------------------------------------------- |
-| `kill -20 [pid]` | pause/stop a process gracefully                                  |
-| `kill -19 [pid]` | pause/stop a process forcefully                                  |
-| `kill -2 [pid]`  | terminate process gracefully                                     |
-| `kill -l`        | list all process signals                                         |
-| `ps -p [pid]`    | find a process name and details by its pid                       |
-| `bf %[n]`        | bring a stopped process to the background and continue execution |
-|                  |                                                                  |
+|                          |                                                                  |
+| ------------------------ | ---------------------------------------------------------------- |
+| `kill -20 [pid]`         | pause/stop a process gracefully                                  |
+| `kill -19 [pid]`         | pause/stop a process forcefully                                  |
+| `kill -2 [pid]`          | terminate process gracefully                                     |
+| `kill -l`                | list all process signals                                         |
+| `ps -p [pid]`            | find a process name and details by its pid                       |
+| `bf %[n]`                | bring a stopped process to the background and continue execution |
+| sudo lsof -i :[port]     | verify a process using a port                                    |
+| sudo fuser -k [port]/tcp | kill a process using a certain port                              |
 
 ## SYSTEMCTL
 
@@ -81,6 +82,7 @@
 
 | docker [command] --help                                                                                                                                  | get help on a command                                      |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| docker exec -it [container-id / name]] sh                                                                                                                | shell into the container                                   |
 | `docker compose up -d`                                                                                                                                   | create and start a container from a compose file           |
 | `docker compose down`                                                                                                                                    | removes all running containers                             |
 | `docker system prune -a`                                                                                                                                 | removes all container and images that are no longer in use |
@@ -98,13 +100,42 @@
 | docker **volume** ls                                                                                                                                     | list created volumes                                       |
 | docker volume create --name [volume name]<br>                                                                                                            | create a new volume                                        |
 | docker compose -f production-stack.yaml up -d<br>                                                                                                        | run a compose file with a non-standard name                |
+| docker run --rm [image-name-or-id] [program/command]                                                                                                     | test a command from a docker image                         |
+|                                                                                                                                                          |                                                            |
 
 # Git
 
 
-|                                                                          |                          |
-| ------------------------------------------------------------------------ | ------------------------ |
-| git remote set-url origin https://github.com/USERNAME/REPOSITORY.git<br> | set a new origin to push |
-|                                                                          |                          |
+|                                                                          |                                                                                                                                                  |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| git remote set-url origin https://github.com/USERNAME/REPOSITORY.git<br> | set a new origin to push                                                                                                                         |
+| git checkout origin/master -- .                                          | match from another branch in case of merge, and git does not recognize changes                                                                   |
+| git fetch origin                                                         | download latests commits and branchs for remote                                                                                                  |
+| git rebase -i origin/branch-name                                         | updates local branch without creating unnecesarry merge commits                                                                                  |
+| git push -u origin my-clean-feature --force                              | creates a new branch in origin                                                                                                                   |
+| git reset HEAD~1                                                         | undoes the current commit to the previous one                                                                                                    |
+| git revert HEAD^                                                         | reverts the current commit changes to the previous one, however, this does not eliminates the previous commit git history in the tree            |
+| git cherry-pick [hash] [hashes...]                                       | pick up only a small commit                                                                                                                      |
+| git restore --staged <\file>                                             | move a file out of the staging area                                                                                                              |
+| git restore <\file>                                                      | discards all changes in a file, retores it to its previous version                                                                               |
+| git rebase -i HEAD~[n]                                                   | interactive rebase with a set of commits                                                                                                         |
+| git branch -f [branch] [commit]                                          | make a branch point to a different commit (you must be in a different branch than the moved branch)                                              |
+| git tag [tag] [branch]                                                   | tags a commit<br>if the branch name is not specified, the tag will be created where HEAD is point at                                             |
+| git describe [commit]                                                    | describe where you are relatevely to the last tag<br><br>if the commit hash is not passed, describe will use where you are checked at the moment |
+| <br>git push <remote_name> --delete <.branchname> <br>                   | delete a remote branch                                                                                                                           |
 
+# GO
+
+|                                                                                          |                                  |
+| ---------------------------------------------------------------------------------------- | -------------------------------- |
+| CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o [binary-name] main.go | **Compile statically for Linux** |
+
+
+# OPENBAO
+
+
+|                                        |             |
+| -------------------------------------- | ----------- |
+| bao list auth/approle/role             | check roles |
+| bao read auth/approle/role/{role-name} | read        |
 

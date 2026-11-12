@@ -117,3 +117,28 @@ float32 float64
 complex64 complex128
 ```
 
+**types with no explicit initial value have a zero value or equivalent**
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var i int    // 0
+	var f float64// 0
+	var b bool   // false
+	var s string // ""
+}
+
+```
+
+**Type conversions:** `T(v)` converts `v` into type `T`
+```go
+var i int = 42
+var f float64 = uint(i)
+var u uint = uint(f)
+
+i := 42
+f := float(i)
+u := uint(f)
+```
